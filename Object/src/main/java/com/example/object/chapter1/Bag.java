@@ -6,6 +6,20 @@ public class Bag {
     private Invitation invitation;
     private Ticket ticket;
 
+    /* 이벤트에 당첨된 관람객의 가방 안에는 현금과 초대장이 들어있지만 이벤트에 당첨되지 않은 관람객의 가방 안에는
+    *  초대장이 들어있지 않을 것이다. 따라서 Bag 인스턴스의 상태는 현금 + 초대장 or 초대장 없이 현금만 보유한 상태 일 것이다.
+    *  이를 생성자를 통해 강제하도록 하자.
+    * */
+    public Bag(long amount) {
+        this(null, amount);
+    }
+
+    public Bag(Invitation invitation, long amount) {
+        this.invitation = invitation;
+        this.amount = amount;
+    }
+
+
     //초대장 보유 여부
     public boolean hasInvitation() {
         return invitation != null;
