@@ -15,15 +15,14 @@ public class TicketOffice {
         this.tickets.addAll(Arrays.asList(tickets));
     }
 
+    public void sellTicketTo(Audience audience) {
+        plusAmount(audience.buy(getTicket()));
+    }
     //티켓 판매(편의상 첫번째 위치에 저정된 티켓 반환)
     public Ticket getTicket() {
         return tickets.remove(0);
     }
 
-    //판매 금액 차감
-    public void minusAmount(Long amount) {
-        this.amount -= amount;
-    }
 
     //판매 금액 증가
     public void plusAmount(Long amount) {
