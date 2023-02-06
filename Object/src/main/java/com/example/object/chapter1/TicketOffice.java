@@ -29,4 +29,5 @@ public class TicketOffice {
     public void plusAmount(Long amount) {
         this.amount += amount;
     }
+
 }

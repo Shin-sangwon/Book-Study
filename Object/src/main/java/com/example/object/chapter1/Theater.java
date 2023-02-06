@@ -13,15 +13,6 @@ public class Theater {
     *  가방 안에 초대장이 없다면 티켓을 판매해야 한다.
     * */
     public void Enter(Audience audience) {
-        if(audience.getBag().hasInvitation()) {
-            Ticket ticket = ticketSeller.getTicketOffice().getTicket();
-            audience.getBag().setTicket(ticket);
-        } else {
-            Ticket ticket = ticketSeller.getTicketOffice().getTicket();
-            audience.getBag().minusAmount(ticket.getFee());
-            ticketSeller.getTicketOffice().plusAmount(ticket.getFee());
-            audience.getBag().setTicket(ticket);
-        }
-
+        ticketSeller.sellTo(audience);
     }
 }
